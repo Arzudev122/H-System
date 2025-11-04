@@ -1,0 +1,176 @@
+import React from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
+const Register = () => {
+
+    const [formData, setFormData] = useState({
+        userName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        address: "",
+        gender: "",
+        dateOfBirth: ""
+    });
+    const [error, setError] = useState("");
+    const [message, setMessage] = useState("");
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+
+        if (formData.password !== formData.confirmPassword) {
+            setError("Password do not match");
+            return;
+        }
+
+        try {
+            const res = await axios.post(
+                `${import.meta.env.VITE_API_URL}/user/register`,
+                {
+                    name: form.name,
+                    email: form.email,
+                    password: form.password,
+                }
+            );
+
+            setMessage(res.data.message);
+            setError("");
+            setTimeout(() => navigate("/login"), 2000);
+        } catch (err) {
+            setError(err.response?.data?.message || "Registration failed");
+            setMessage("");
+        }
+    };
+
+
+    return (
+        <div className='min-h-screen flex justify-center items-center bg-cyan-100'>
+            <div className='flex justify-center items-center p-1 bg-white w-full max-w-6xl md:flex-row rounded-xl'>
+                <img src="./src/assets/img/hospital-reception.png" className=' p-1 h-auto w-1/2 ' />
+                <form
+                    onSubmit={handleSubmit}
+                    className='bg-white p-5 m-4 '
+                >
+                    <h2 className='text-3xl font-bold flex justify-center items-center p-1'>Registration Form!</h2>
+                    <div>
+                        <div className='font-normal m-2'>
+                            <label>UserName</label>
+                            <input
+                                name="userName"
+                                type="text"
+                                placeholder="  Full Name"
+                                value={formData.userName}
+                                onChange={handleChange}
+                                className='w-full rounded-lg p-1 border border-cyan-300'
+                            />
+                        </div>
+
+                        <div className='font-normal m-2'>
+                            <label>Email</label>
+                            <input
+                                name="email"
+                                type="email"
+                                value={formData.email}
+                                placeholder=' Enter email'
+                                onChange={handleChange}
+                                className='w-full rounded-lg border border-cyan-300 p-1'
+                            />
+                        </div>
+
+                        <div className='font-normal m-2'>
+                            <label>Password</label>
+                            <input
+                                name="password"
+                                type="password"
+                                placeholder=' Enter your password'
+                                onChange={handleChange}
+                                value={formData.password}
+                                className='w-full rounded-lg border border-cyan-300 p-2'
+                            />
+                        </div>
+
+                        <div className='font-normal m-2'>
+                            <label>Confirm Password</label>
+                            <input
+                                name="confirmPassword"
+                                type="password"
+                                value={formData.confirmPassword}
+                                placeholder=" Confirm password"
+                                onChange={handleChange}
+                                className='w-full rounded-lg border border-cyan-300 p-2'
+                            />
+                        </div>
+
+                        <div className='font-normal m-2'>
+                            <label>Address</label>
+                            <input
+                                name="address"
+                                type="text"
+                                value={formData.address}
+                                placeholder=" Enter your address"
+                                onChange={handleChange}
+                                className='w-full rounded-lg border border-cyan-300 p-2'
+                            />
+                        </div>
+
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-5 '>
+                            <div className='w-1/2 m-1'>
+                                <label className='font-normal'>Gender</label>
+                                <select
+                                    name="gender"
+                                    type="radiobutton"
+                                    value={formData.gender}
+                                    onChange={handleChange}
+                                    className='rounded-lg border border-cyan-300 p-2'
+                                >
+                                    <option value="">Select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+
+                            <div className='w-1/2 m-1'>
+                                <label className='font-normal'>DOB</label>
+                                <input
+                                    name="dateOfBirth"
+                                    type="date"
+                                    value={formData.dateOfBirth}
+                                    onChange={handleChange}
+                                    className='rounded-lg border border-cyan-300 p-2'
+                                />
+                            </div>
+                        </div>
+
+
+                        <button className={`m-2 w-full rounded-lg text-white font-medium bg-blue-600 py-1 my-3 `}
+                            type="submit"
+                        >Register
+                        </button>
+
+                        {message && <p>{message}</p>}
+                        {error && <P>{error}</P>}
+
+                        <p className="text-center mt-4 text-gray-600">
+                            Already have an account?{" "}
+                            <a href="/login" className="text-blue-500 hover:underline">
+                                Log in
+                            </a>
+                        </p>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    )
+}
+
+export default Register
