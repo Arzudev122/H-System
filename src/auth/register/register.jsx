@@ -52,13 +52,15 @@ const Register = () => {
 
     return (
         <div className='min-h-screen flex justify-center items-center bg-cyan-100'>
-            <div className='flex justify-center items-center p-1 bg-white w-full max-w-6xl md:flex-row rounded-xl'>
-                <img src="./src/assets/img/hospital-reception.png" className=' p-1 h-auto w-1/2 ' />
+            <div className='flex justify-center items-center p-1 bg-white w-full max-w-6xl md:flex-row rounded-xl shadow-2xl'>
+                 
+                  <img src="./src/assets/img/hospital-reception.png" className=' p-1 h-auto w-1/2 ' /> 
+
                 <form
                     onSubmit={handleSubmit}
                     className='bg-white p-5 m-4 '
                 >
-                    <h2 className='text-3xl font-bold flex justify-center items-center p-1'>Registration Form!</h2>
+                    <h2 className='text-3xl font-bold flex justify-center items-center text-blue-600 p-2'>Create Account</h2>
                     <div>
                         <div className='font-normal m-2'>
                             <label>UserName</label>
@@ -68,7 +70,7 @@ const Register = () => {
                                 placeholder="  Full Name"
                                 value={formData.userName}
                                 onChange={handleChange}
-                                className='w-full rounded-lg p-1 border border-cyan-300'
+                                className='w-full rounded-lg p-2 focus:outline-none border focus:border-2 focus:border-cyan-500 border-cyan-300'
                             />
                         </div>
 
@@ -80,7 +82,7 @@ const Register = () => {
                                 value={formData.email}
                                 placeholder=' Enter email'
                                 onChange={handleChange}
-                                className='w-full rounded-lg border border-cyan-300 p-1'
+                                className='w-full rounded-lg border border-cyan-300 focus:outline-none focus:border-2 focus:border-cyan-500 p-2'
                             />
                         </div>
 
@@ -92,11 +94,11 @@ const Register = () => {
                                 placeholder=' Enter your password'
                                 onChange={handleChange}
                                 value={formData.password}
-                                className='w-full rounded-lg border border-cyan-300 p-2'
+                                className='w-full rounded-lg border border-cyan-300 focus:outline-none focus:border-2 focus:border-cyan-500 p-2'
                             />
                         </div>
 
-                        <div className='font-normal m-2'>
+                        {/* <div className='font-normal m-2'>
                             <label>Confirm Password</label>
                             <input
                                 name="confirmPassword"
@@ -104,9 +106,9 @@ const Register = () => {
                                 value={formData.confirmPassword}
                                 placeholder=" Confirm password"
                                 onChange={handleChange}
-                                className='w-full rounded-lg border border-cyan-300 p-2'
+                                className='w-full rounded-lg border border-cyan-300 focus:outline-none focus:border-2 focus:border-cyan-500 p-1'
                             />
-                        </div>
+                        </div> */}
 
                         <div className='font-normal m-2'>
                             <label>Address</label>
@@ -116,7 +118,7 @@ const Register = () => {
                                 value={formData.address}
                                 placeholder=" Enter your address"
                                 onChange={handleChange}
-                                className='w-full rounded-lg border border-cyan-300 p-2'
+                                className='w-full rounded-lg border border-cyan-300 focus:outline-none focus:border-2 focus:border-cyan-500 p-2'
                             />
                         </div>
 
@@ -128,7 +130,7 @@ const Register = () => {
                                     type="radiobutton"
                                     value={formData.gender}
                                     onChange={handleChange}
-                                    className='rounded-lg border border-cyan-300 p-2'
+                                    className='rounded-lg border border-cyan-300 focus:border-2 focus:border-cyan-500 focus:ouline-none p-2'
                                 >
                                     <option value="">Select gender</option>
                                     <option value="Male">Male</option>
@@ -144,7 +146,7 @@ const Register = () => {
                                     type="date"
                                     value={formData.dateOfBirth}
                                     onChange={handleChange}
-                                    className='rounded-lg border border-cyan-300 p-2'
+                                    className='rounded-lg border border-cyan-300 focus:outline-none focus:border-2 focus:border-cyan-500 p-2 mb-2 '
                                 />
                             </div>
                         </div>
@@ -167,6 +169,8 @@ const Register = () => {
 
                     </div>
                 </form>
+
+                
             </div>
 
         </div>

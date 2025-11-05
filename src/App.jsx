@@ -6,6 +6,7 @@ import Register from './auth/register/register'
 // import { AuthContext } from './hooks/context/authcontext'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import { AuthProvider } from './hooks/context/authcontext'
+import Sidebar from './component/shared/sidebar/sidebar'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path="/" element={<Login/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
+      <Route path="/sidebar" element={<Sidebar/>} />
     </Routes>
     </BrowserRouter>
     </AuthProvider>
