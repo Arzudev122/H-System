@@ -2,6 +2,7 @@ import React from 'react'
 import { Home, LayoutDashboard, CalendarCheck2, Users, Stethoscope, FileText, Wallet, Box, CalendarDays, CircleAlert, Cog, LogOut } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
 
+
 const Sidebar = () => {
    const  location =useLocation();
 
@@ -21,24 +22,21 @@ const Sidebar = () => {
    ]
 
    const helpMenu=[
-    {name:"Help" , icon:CircleAlert , path:"/help"}
-   ]
-
-   const lastMenu=[
+    {name:"Help" , icon:CircleAlert , path:"/help"},
     {name:"Settings" ,icon: Cog , path:"/settings"},
     {name:"Logout" , icon:LogOut , path:"/login"}
    ]
 
    const renderMenu =(tittle , items)=>(
       <div>
-        <p className='text-sm font-bold m-2 p-2 text-gray-600 mb-4'>{tittle}</p>
+        <p className='text-sm font-bold m-3 p-2 text-gray-600 mb-4'>{tittle}</p>
         {items.map(({name , icon: Icon , path})=>{
             const active =location.pathname === path;
             return(
                 <Link
                 key={name}
                 to={path}
-                className={`flex items-center gap-3 mb-3 p-2 rounded-lg
+                className={`flex items-center gap-3 m-2 mb-3 p-2 rounded-lg
                    ${ active 
                     ? "bg-red-100 text-red-500 font-medium"
                     : "text-gray-800 hover:bg-gray-100 hover:text-red-500 "
@@ -55,8 +53,8 @@ const Sidebar = () => {
 
 
     return (
-        <div className='flex flex-col h-screen w-56 bg-white '>
-            <div className='flex items-center m-5 gap-3 sticky'>
+        <div className='flex flex-col h-screen w-56 bg-white'>
+              <div className='flex items-center p-3 m-1 gap-3 '>
                 <img
                     src="./src/assets/img/sidebar hospital logo.svg"
                     alt="HavenMed Logo"
@@ -72,7 +70,7 @@ const Sidebar = () => {
             {renderMenu("Main Menu", mainMenu)}
             {renderMenu("Other Menu", otherMenu)}
             {renderMenu("Help", helpMenu)}
-            {renderMenu("",lastMenu)}
+            
 
            </nav>
             </div>
