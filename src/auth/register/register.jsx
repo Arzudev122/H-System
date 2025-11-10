@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
@@ -25,21 +26,19 @@ const Register = () => {
         e.preventDefault();
 
 
-        if (formData.password !== formData.confirmPassword) {
-            setError("Password do not match");
+        if (!formData.password) {
+            setError("Password is required");
             return;
         }
-
+console.log("FormData", formData)
         try {
             const res = await axios.post(
-                `${import.meta.env.VITE_API_URL}/user/register`,
-                {
-                    name: form.name,
-                    email: form.email,
-                    password: form.password,
+                `${import.meta.env.VITE_API_URL}/user/register`,formData, {
+               headers: {
+                   'Content-Type': 'application/json'
                 }
-            );
-
+        });
+            console.log("Server Response:",res.data)
             setMessage(res.data.message);
             setError("");
             setTimeout(() => navigate("/login"), 2000);
