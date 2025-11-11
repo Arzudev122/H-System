@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../shared/navbar/navbar'
 import Sidebar from '../shared/sidebar/sidebar'
 import { Bed, CalendarCheck2, Ellipsis, Users,File } from 'lucide-react'
+import MainLayout from '../shared/MainLayout/mainLayout'
 
 const Dashboard = () => {
   const cards = [
@@ -45,23 +46,20 @@ const Dashboard = () => {
   ]
 
   return (
-    <div className='flex h-screen'>
-      <Sidebar />
+    <>
+      <MainLayout>
+        <div>
+        <main className='p-2 bg-violet-50 rounded-4xl'>
 
-      <div className='flex flex-col  flex-1'>
-        <Navbar />
-
-        <main className='p-4 overflow-auto flex-1 bg-violet-50 rounded-4xl'>
-
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2 mb-4 mx-3'>
             {cards.map((card, i) => (
               <div
                 key={i}
-                className={`flex flex-col justify-between p-4 h-56 rounded-3xl shadow-md ${card.bg}`}
+                className={`flex flex-col justify-between p-3 h-48 rounded-3xl shadow-md ${card.bg}`}
               >
 
                 <div className='flex justify-between '>
-                  <div className='flex items-center justify-center w-12 h-12 rounded-full bg-white'>
+                  <div className='flex items-center justify-center w-12 h-12 rounded-full bg-gray-100'>
                     {card.iconLeft}
                   </div>
                   <div className='flex items-center justify-center h-12 w-12 rounded-full bg-white '>
@@ -120,7 +118,7 @@ const Dashboard = () => {
 
           </div> */}
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid cols-2 gap-2 m-1 '>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid cols-2 gap-3 m-2 '>
             {boxes.map((box, j) => (
               <div
                 key={j}
@@ -152,8 +150,9 @@ const Dashboard = () => {
 
 
         </main>
-      </div>
-    </div>
+        </div>
+      </MainLayout>
+    </>
   )
 }
 

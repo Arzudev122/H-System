@@ -8,6 +8,8 @@ import {BrowserRouter,Routes,Route} from "react-router-dom"
 import { AuthProvider } from './hooks/context/authcontext'
 import Sidebar from './component/shared/sidebar/sidebar'
 import Dashboard from './component/dashboard/dashboard'
+import MainLayout from './component/shared/MainLayout/mainLayout'
+import Appointment from './component/Appointment/appointment'
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
       <Route path="/register" element={<Register/>} />
       <Route path="/sidebar" element={<Sidebar/>} />
       <Route path="/dashboard" element={<Dashboard/>} />
+      <Route path="/mainlayout" element={<MainLayout/>} />
+      <Route path="/appointment" element={<Appointment/>} />
     </Routes>
     </BrowserRouter>
     </AuthProvider>

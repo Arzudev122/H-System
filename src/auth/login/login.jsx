@@ -16,11 +16,12 @@ const Login = () => {
   };
 
 
-  //  useEffect(()=>{
-  //   if (user){
-  //     navigator("/dashboard", {replace:true});
-  //   }
-  //  },[user, navigator])
+   useEffect(()=>{
+    if (user){
+      navigator("/dashboard", {replace:true});
+      navigator("/appointment", {replace:true});
+    }
+   },[user, navigator])
 
 
   return (

@@ -14,7 +14,7 @@ const Navbar = () => {
    }
 
   return (
-    <nav className='flex items-center gap-6 px-6 py-4 bg-white rounded-2xl'>
+    <nav className='flex items-center justify-between gap-6 px-6 py-4 bg-white rounded-2xl'>
     <div className='relative w-1/2 mr-3'>
        <Search className='absolute left-2 top-1/2 -translate-y-1/2 h-5 w-5 '/> 
        <input
@@ -26,6 +26,7 @@ const Navbar = () => {
         /> 
          </div>
            
+           <div className='flex justify-between gap-3'>
            <div className='flex space-x-8 p-4 border-x-4 border-gray-100 py-1 mx-3'>
          <span className='flex justify-center items-center rounded-full h-10 w-10 bg-gray-100 hover:bg-gray-300'><Mails className='text-black h-5 w-5'/></span> 
          <span className='flex justify-center items-center rounded-full h-10 w-10 bg-gray-100 hover:bg-gray-300'> <Bell className='text-black h-5 w-5'/></span>
@@ -44,7 +45,7 @@ const Navbar = () => {
                 </span>
                 <ChevronDown/>
             </div>
-
+           </div>
      </nav>
   )
 }

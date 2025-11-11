@@ -8,7 +8,7 @@ const Sidebar = () => {
 
   const mainMenu=[
     {name:"Dashboard" , icon:LayoutDashboard , path:"/dashboard"},
-    {name:"Appointments" , icon:CalendarCheck2 , path:"/appointments"},
+    {name:"Appointments" , icon:CalendarCheck2 , path:"/appointment"},
     {name:"Patient" , icon:Users , path:"/patient"}
   ]
 
