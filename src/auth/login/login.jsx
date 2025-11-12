@@ -19,14 +19,14 @@ const Login = () => {
    useEffect(()=>{
     if (user){
       navigator("/dashboard", {replace:true});
-      navigator("/appointment", {replace:true});
+    
     }
    },[user, navigator])
 
 
   return (
     <div className=' min-h-screen flex items-center justify-center bg-cyan-100'>
-      <div className='w-full  max-w-6xl md:flex-row flex justify-between items-center rounded-xl bg-white'>
+      <div className='w-full  max-w-6xl flex flex-col md:flex-row justify-between items-center rounded-xl bg-white'>
         <img 
         src="./src/assets/img/health-team.png" 
         className='w-1/2 h-auto p-8 rounded-2xl'

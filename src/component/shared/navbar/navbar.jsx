@@ -14,9 +14,9 @@ const Navbar = () => {
    }
 
   return (
-    <nav className='flex items-center justify-between gap-6 px-6 py-4 bg-white rounded-2xl'>
-    <div className='relative w-1/2 mr-3'>
-       <Search className='absolute left-2 top-1/2 -translate-y-1/2 h-5 w-5 '/> 
+    <nav className='flex items-center justify-between m-2 bg-white rounded-2xl'>
+    <div className='flex item-center relative w-full md:w-1/2 '>
+       <Search className='absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 '/> 
        <input
         type="search"
         placeholder=" Search here..."
@@ -33,7 +33,7 @@ const Navbar = () => {
           <span className='flex justify-center items-center rounded-full h-10 w-10 bg-gray-100 hover:bg-gray-300'><Settings className='text-black h-5 w-5'/> </span>
             </div>
 
-            <div className='flex justify-between items-center ml-6 gap-4'>
+            <div className='flex justify-between items-center gap-4'>
                 <img 
                 src="./src/assets/img/profile.jpg"
                 alt="profile picture"

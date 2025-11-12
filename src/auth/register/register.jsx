@@ -42,8 +42,8 @@ console.log("FormData", formData)
             setMessage(res.data.message);
             setError("");
             setTimeout(() => navigate("/login"), 2000);
-        } catch (err) {
-            setError(err.response?.data?.message || "Registration failed");
+        } catch (error) {
+            setError(error.response?.data?.message || "Registration failed");
             setMessage("");
         }
     };
