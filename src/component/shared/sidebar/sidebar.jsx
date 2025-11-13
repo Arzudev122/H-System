@@ -1,10 +1,13 @@
 import React from 'react'
-import { Home, LayoutDashboard, CalendarCheck2, Users, Stethoscope, FileText, Wallet, Box, CalendarDays, CircleAlert, Cog, LogOut } from "lucide-react"
-import { Link, useLocation } from "react-router-dom"
+import { LayoutDashboard, CalendarCheck2, Users, Stethoscope, FileText, Wallet, Box, CalendarDays, CircleAlert, Cog, LogOut } from "lucide-react"
+import { Link, useLocation,useNavigate } from "react-router-dom"
+import { useAuth } from '../../../hooks/context/authcontext'
 
 
 const Sidebar = () => {
    const  location =useLocation();
+   const  navigate =useNavigate();
+   const  {logout} =useAuth();
 
   const mainMenu=[
     {name:"Dashboard" , icon:LayoutDashboard , path:"/dashboard"},
@@ -32,6 +35,22 @@ const Sidebar = () => {
         <p className='text-sm font-bold m-3 p-2 text-gray-600 mb-4'>{tittle}</p>
         {items.map(({name , icon: Icon , path})=>{
             const active =location.pathname === path;
+
+            if(name === "Logout"){
+                return(
+                    <button
+                    key={name}
+                    onClick={()=>{
+                        logout();
+                        navigate("/login");
+                    }}
+                    className='flex items-center gap-3 m-3 mb-3 p-3 rounded-2xl w-full text-left text-gray-800 hover:bg-gray-100 hover:text-red-500'
+                >
+                    <Icon className="w-6 h-6" />
+                    <span>{name}</span>
+                </button>
+                );
+            }
             return(
                 <Link
                 key={name}

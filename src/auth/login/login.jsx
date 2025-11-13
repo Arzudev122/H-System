@@ -21,7 +21,7 @@ const Login = () => {
       navigator("/dashboard", {replace:true});
     
     }
-   },[user, navigator])
+   },[user])
 
 
   return (
@@ -70,11 +70,11 @@ const Login = () => {
 
         <div className='flex items-center justify-between mb-4'>
           <div className='ml-3'>
-            <input type="checkbox" id="rememberMe" classname="" />
+            <input type="checkbox" id="rememberMe" className="" />
             <label htmlFor='rememberMe'className='text-gray-600 ml-2' >Remember me</label>
           </div>
          <div>
-          <Link to="/forgot-password" className='text-blue-500 curser-pointer'>
+          <Link to="/forgotpass" className='text-blue-500 curser-pointer'>
             Forgot password?
           </Link>
         </div>
