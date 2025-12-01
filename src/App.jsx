@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './component/shared/navbar/navbar'
 import Login from './auth/login/login'
 import Register from './auth/register/register'
+import { useAuth } from './hooks/context/authcontext'
 // import { AuthContext } from './hooks/context/authcontext'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import { AuthProvider } from './hooks/context/authcontext'
@@ -26,9 +27,9 @@ function App() {
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
       <Route path="/forgotpass" element={<ForgotPassword/>} />
+      
 
       <Route path="/navbar" element={<ProtectedRoute><Navbar/></ProtectedRoute>}/>
-      <Route path="/" element={<ProtectedRoute><Login/></ProtectedRoute>} />
       <Route path="/sidebar" element={<ProtectedRoute><Sidebar/></ProtectedRoute>} />
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
       <Route path="/mainlayout" element={<ProtectedRoute><MainLayout/></ProtectedRoute>} />

@@ -55,7 +55,7 @@ const Dashboard = () => {
             {cards.map((card, i) => (
               <div
                 key={i}
-                className={`flex flex-col justify-between p-3 h-48 rounded-3xl shadow-md ${card.bg}`}
+                className={`flex flex-col justify-between p-3 h-48 rounded-3xl shadow-md hover:shadow-2xl ${card.bg}`}
               >
 
                 <div className='flex justify-between '>

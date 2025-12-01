@@ -55,10 +55,10 @@ const Sidebar = () => {
                 <Link
                 key={name}
                 to={path}
-                className={`flex items-center gap-3 m-3 mb-3 p-3 rounded-2xl
+                className={`flex items-center gap-3 m-3 mb-3 p-3 rounded-xl
                    ${ active 
-                    ? "bg-black text-white font-medium"
-                    : "text-gray-800 hover:bg-gray-100 hover:text-red-500 "
+                    ? "bg-red-300 text-red-500 font-medium"
+                    : "text-gray-800 hover:bg-gray-100 hover:text-red-700 "
                 }`}
                 >
                     <Icon className ="w-6 h-6"/>
