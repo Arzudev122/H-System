@@ -12,6 +12,7 @@ import Dashboard from './component/dashboard/dashboard'
 import MainLayout from './component/shared/MainLayout/mainLayout'
 import Appointment from './component/Appointment/appointment'
 import ForgotPassword from './auth/forgotpassword/forgotpass'
+import Patient from './component/Patient'
 import ProtectedRoute from './protectedRoute/protectedRoute'
 
 
@@ -24,6 +25,7 @@ function App() {
     <BrowserRouter>
       <Routes>
           
+      <Route path="/" element={<Dashboard/>} />   
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
       <Route path="/forgotpass" element={<ForgotPassword/>} />
@@ -31,7 +33,8 @@ function App() {
 
       <Route path="/navbar" element={<ProtectedRoute><Navbar/></ProtectedRoute>}/>
       <Route path="/sidebar" element={<ProtectedRoute><Sidebar/></ProtectedRoute>} />
-      <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
+      <Route path="/patient" element={<ProtectedRoute><Patient/></ProtectedRoute>} />
+      <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/mainlayout" element={<ProtectedRoute><MainLayout/></ProtectedRoute>} />
       <Route path="/appointment" element={<ProtectedRoute><Appointment/></ProtectedRoute>} />
       
