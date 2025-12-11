@@ -2,18 +2,40 @@ import React from 'react'
 import { useAuth } from '../../hooks/context/authcontext'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import ForgotPassword from '../forgotpassword/forgotpass';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 
 const Login = () => {
   const { login, error, loading, user } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword,setShowPassword] = useState(false);
   const navigator = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     login(email, password);
+
+    if(!password){
+      setError("Password is required")
+      return;
+     }
+     try{
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/user/login`,{
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      console.log("Server Response:",res.data)
+      setError("");
+     }catch (error){
+      setError(error.response?.data || "Login failed");
+     }
+
   };
 
 
@@ -58,15 +80,29 @@ const Login = () => {
 
         <div className=' m-2 p-1'>
           <label className='font-bold'>Password</label>
+          <div className='relative mb-5'>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder=" Enter your password"
             required
-            className='mt-2 h-8 mb-5 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200'
+            className='mt-2 h-8 pr-10 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200'
 
           />
+          <button
+          type="button"
+          onClick={()=> setShowPassword(!showPassword)}
+          className='absolute right-2 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-800'
+          >
+            {showPassword ? (
+              <AiOutlineEyeInvisible size={20} />
+            ) : (
+              <AiOutlineEye size ={20} />
+            )}
+
+          </button>
+          </div>
         </div>
 
         <div className='flex items-center justify-between mb-4'>
