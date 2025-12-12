@@ -13,6 +13,10 @@ import MainLayout from './component/shared/MainLayout/mainLayout'
 import Appointment from './component/Appointment/appointment'
 import ForgotPassword from './auth/forgotpassword/forgotpass'
 import Patient from './component/Patient'
+import Payment from './component/Payment/payment'
+import Doctor from './component/Doctor/doctor'
+import DoctorSchedule from './component/Doctor/doctorSchedule'
+import Calendar from './component/Calendar/calendar'
 import ProtectedRoute from './protectedRoute/protectedRoute'
 
 
@@ -34,6 +38,10 @@ function App() {
       <Route path="/navbar" element={<ProtectedRoute><Navbar/></ProtectedRoute>}/>
       <Route path="/sidebar" element={<ProtectedRoute><Sidebar/></ProtectedRoute>} />
       <Route path="/patient" element={<ProtectedRoute><Patient/></ProtectedRoute>} />
+      <Route path="/doctor" element={<ProtectedRoute><Doctor/></ProtectedRoute>} />
+      <Route path="/doctorschedule" element={<ProtectedRoute><DoctorSchedule/></ProtectedRoute>} />
+      <Route path="/payment" element={<ProtectedRoute><Payment/></ProtectedRoute>} />
+      <Route path="/calendar" element={<ProtectedRoute><Calendar/></ProtectedRoute>} />
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/mainlayout" element={<ProtectedRoute><MainLayout/></ProtectedRoute>} />
       <Route path="/appointment" element={<ProtectedRoute><Appointment/></ProtectedRoute>} />
